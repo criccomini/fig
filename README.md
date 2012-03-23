@@ -51,13 +51,13 @@ Fig has an example project falled "fig-example", which demonstrates how to use F
 Follow these instructions to try things out.
 
 ```
-git://github.com/criccomini/fig.git
+git clone git://github.com/criccomini/fig.git
 cd fig
 mvn package
 cd fig-example/target
 unzip fig-example-bin.zip
 cd fig-example
-./bin/run-config.sh --config-path=file://`pwd`/config/example.properties --config-provider=fig.providers.PropertiesConfigProvider
+./bin/run-config.sh --config-path=file://`pwd`/config/example.properties
 ```
 
 This will execute a little Java class that prints the configuration in example.properties.
