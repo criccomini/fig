@@ -1,17 +1,17 @@
 package fig.serializers;
 
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 
+import fig.Config;
 import fig.ConfigDeserializer;
 import fig.ConfigException;
+import fig.config.MapConfig;
 
 public class PropertiesDeserializer implements ConfigDeserializer {
-  public Map<String, String> getConfig(InputStream in) {
+  public Config getConfig(InputStream in) {
     Properties props = new Properties();
     HashMap<String, String> out = new HashMap<String, String>();
 
@@ -26,6 +26,6 @@ public class PropertiesDeserializer implements ConfigDeserializer {
       out.put(entry.getKey().toString(), (v == null) ? null : v.toString());
     }
 
-    return Collections.unmodifiableMap(out);
+    return new MapConfig(out);
   }
 }

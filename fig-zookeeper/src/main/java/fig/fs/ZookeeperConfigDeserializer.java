@@ -2,10 +2,10 @@ package fig.fs;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.Map;
 
 import org.I0Itec.zkclient.serialize.ZkSerializer;
 
+import fig.Config;
 import fig.ConfigDeserializer;
 import fig.ConfigException;
 
@@ -26,7 +26,7 @@ public class ZookeeperConfigDeserializer implements ZkSerializer {
     else {
       try {
         InputStream in = new ByteArrayInputStream(bytes);
-        Map<String, String> config = deserializer.getConfig(in);
+        Config config = deserializer.getConfig(in);
         in.close();
         return config;
       } catch (Exception e) {

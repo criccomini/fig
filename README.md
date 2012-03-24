@@ -8,6 +8,7 @@ Fig is a simple configuartion library for Java.
 *   Pluggable
 *   No types
 *   Stupid simple
+*   Immutability
 
 ## Using Fig
 
@@ -22,7 +23,7 @@ hello=world
 Now, in Java, you can get your properties.
 
 ```java
-Map<String, String> config = new AutoConfigLoader().getConfig(new URI("file:///tmp/config.properties"));
+Config config = new AutoConfigLoader().getConfig(new URI("file:///tmp/config.properties"));
 System.out.println("hello " + config.get("hello"));
 ```
 
@@ -78,3 +79,11 @@ new AutoConfigLoader().getConfig(new URI("http://localhost/my-config.yaml"));
 ```
 
 How great is that?
+
+## Rules of the Game
+
+Since configuration is often a core and pervasive part of an API, Fig makes the following guarantees.
+
+1. Fig uses semantic versioning (http://semver.org/), and will never make backwards incompatible changes without bumping the major version (*.0.0).
+2. Fig's core library (fig-core) will never pullin any transitive dependencies.
+

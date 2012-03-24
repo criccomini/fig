@@ -1,10 +1,10 @@
 package fig.cli;
 
 import java.net.URI;
-import java.util.Map;
 
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
+import fig.Config;
 import fig.loaders.AutoConfigLoader;
 
 public class ConfigCli {
@@ -22,7 +22,7 @@ public class ConfigCli {
 
     // Get the config.
     URI uri = new URI(options.valueOf("config-path").toString());
-    Map<String, String> config = new AutoConfigLoader().getConfig(uri);
+    Config config = new AutoConfigLoader().getConfig(uri);
 
     // Run main-class.
     String mainClass = config.get("main-class");
