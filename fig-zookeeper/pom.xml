@@ -3,11 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>fig</groupId>
+    <groupId>name.riccomini.fig</groupId>
     <artifactId>fig-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-
-    <relativePath>../fig-parent/pom.xml</relativePath>
   </parent>
 
   <artifactId>fig-zookeeper</artifactId>
@@ -15,7 +13,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>fig</groupId>
+      <groupId>name.riccomini.fig</groupId>
       <artifactId>fig-core</artifactId>
       <version>${project.version}</version>
     </dependency>

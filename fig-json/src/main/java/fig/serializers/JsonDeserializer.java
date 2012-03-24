@@ -11,6 +11,7 @@ import fig.ConfigException;
 public class JsonDeserializer implements ConfigDeserializer {
   private final ObjectMapper jsonMapper = new ObjectMapper();
 
+  @SuppressWarnings("unchecked")
   @Override
   public Map<String, String> getConfig(InputStream in) {
     try {

@@ -64,7 +64,7 @@ This will execute a little Java class that prints the configuration in example.p
 
 ## Extensibility
 
-Fig comes with a lot of FileSystem and ConfigDeserializers out of the box, but you can always extend Fig to use your own config system by using the following Java properties.
+Fig comes with a lot of FileSystems and ConfigDeserializers out of the box, but you can always extend Fig to use your own config system by using the following Java properties.
 
 ```
 -Dfig.fs=http:fig.fs.HttpFileSystem,hdfs:fig.fs.HadoopFileSystem

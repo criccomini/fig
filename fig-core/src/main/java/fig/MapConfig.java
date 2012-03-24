@@ -8,26 +8,24 @@ import java.util.Set;
 import fig.util.Utils;
 
 public class MapConfig extends Config {
+  private final Map<String, String> _map;
 
-  private final Map<String,String> _map;
-  public MapConfig(Map<String,String> map){
+  public MapConfig(Map<String, String> map) {
     _map = map;
   }
-  
+
   @Override
   public String get(String s) {
     return _map.get(s);
   }
 
   @Override
-  public Config subset(String prefix,boolean stripPrefix) {
+  public Config subset(String prefix, boolean stripPrefix) {
     Utils.notNull(prefix);
 
     Map<String, String> out = new HashMap<String, String>();
-    
 
-    for (Entry<String,String> entry  : _map.entrySet()) {
-
+    for (Entry<String, String> entry : _map.entrySet()) {
       String k = entry.getKey();
       if (k != null && k.startsWith(prefix)) {
         if (stripPrefix) {
@@ -37,7 +35,7 @@ public class MapConfig extends Config {
         out.put(k, entry.getValue());
       }
     }
-    
+
     return new MapConfig(out);
   }
 
@@ -45,5 +43,4 @@ public class MapConfig extends Config {
   public Set<String> getKeys() {
     return _map.keySet();
   }
-  
 }

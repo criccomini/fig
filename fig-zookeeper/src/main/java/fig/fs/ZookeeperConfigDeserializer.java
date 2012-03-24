@@ -2,11 +2,9 @@ package fig.fs;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.I0Itec.zkclient.serialize.ZkSerializer;
-import org.I0Itec.zkclient.exception.ZkNoNodeException;
 
 import fig.ConfigDeserializer;
 import fig.ConfigException;

@@ -1,18 +1,11 @@
 package fig.cli;
 
 import java.net.URI;
-import java.util.HashMap;
 import java.util.Map;
-
-import fig.ConfigDeserializer;
-import fig.ConfigException;
-import fig.ConfigFileSystem;
-import fig.serializers.PropertiesDeserializer;
-import fig.fs.LocalFileSystem;
-import fig.loaders.AutoConfigLoader;
 
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
+import fig.loaders.AutoConfigLoader;
 
 public class ConfigCli {
   public static void main(String[] args) throws Exception {

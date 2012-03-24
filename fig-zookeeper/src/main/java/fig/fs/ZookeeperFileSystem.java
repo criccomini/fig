@@ -3,11 +3,10 @@ package fig.fs;
 import java.net.URI;
 import java.util.Map;
 
-import fig.ConfigDeserializer;
-import fig.ConfigException;
-import fig.ConfigFileSystem;
-
 import org.I0Itec.zkclient.ZkClient;
+
+import fig.ConfigDeserializer;
+import fig.ConfigFileSystem;
 
 public class ZookeeperFileSystem implements ConfigFileSystem {
   @Override
