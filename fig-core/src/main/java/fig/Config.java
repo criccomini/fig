@@ -105,19 +105,41 @@ public abstract class Config implements Map<String, String> {
       throw new ConfigException("Missing key " + k + ".");
   }
 
-  public List<String> getList(String key, List<String> defaultValue) {
-    if (!containsKey(key))
+  public List<String> getList(String k, List<String> defaultValue) {
+    if (!containsKey(k))
       return defaultValue;
 
-    String value = get(key);
+    String value = get(k);
     String[] pieces = value.split("\\s*,\\s*");
     return Arrays.asList(pieces);
   }
 
-  public List<String> getList(String key) {
-    if (!containsKey(key))
-      throw new ConfigException("Missing key " + key + ".");
-    return getList(key, null);
+  public List<String> getList(String k) {
+    if (!containsKey(k))
+      throw new ConfigException("Missing key " + k + ".");
+    return getList(k, null);
+  }
+
+  @SuppressWarnings("unchecked")
+  public <T> Class<T> getClass(String k) {
+    if (containsKey(k)) {
+      try {
+        return (Class<T>) Class.forName(get(k));
+      } catch (Exception e) {
+        throw new ConfigException("Unable to find class.", e);
+      }
+    } else {
+      throw new ConfigException("Missing key " + k + ".");
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  public <T> T getNewInstance(String k) {
+    try {
+      return (T) getClass(k).newInstance();
+    } catch (Exception e) {
+      throw new ConfigException("Unable to instantiate class.", e);
+    }
   }
 
   public void clear() {

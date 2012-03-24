@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import fig.Config;
 import fig.config.MapConfig;
+import fig.fs.LocalFileSystem;
 
 public class FigTest {
   @Test
@@ -21,6 +22,7 @@ public class FigTest {
     map.put("list", "a,b");
     map.put("sub.k1", "newton");
     map.put("sub.k2", "1000");
+    map.put("fs", "fig.fs.LocalFileSystem");
 
     Config conf = new MapConfig(map);
 
@@ -30,6 +32,10 @@ public class FigTest {
     TestCase.assertEquals((short) 2012, conf.getShort("year"));
     TestCase.assertEquals((long) 2012, conf.getLong("year"));
     TestCase.assertEquals("a,b", conf.get("list"));
+
+    // test class
+    TestCase.assertEquals(LocalFileSystem.class, conf.getClass("fs"));
+    TestCase.assertEquals(LocalFileSystem.class, conf.getNewInstance("fs").getClass());
 
     // test list
     List<String> list = conf.getList("list");
