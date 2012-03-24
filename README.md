@@ -1,6 +1,6 @@
 # Fig
 
-Fig is a simple configuartion library for Java.
+Fig is a simple configuartion library for the JVM.
 
 ## Why?
 
@@ -47,7 +47,7 @@ It really is that simple!
 
 ## Example Project
 
-Fig has an example project falled "fig-example", which demonstrates how to use Fig with the run-config.sh script.
+Fig has an example project called "fig-example", which demonstrates how to use Fig with the run-config.sh script.
 
 Follow these instructions to try things out.
 
