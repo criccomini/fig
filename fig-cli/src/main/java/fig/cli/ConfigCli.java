@@ -5,7 +5,7 @@ import java.net.URI;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import fig.Config;
-import fig.loaders.AutoConfigLoader;
+import fig.loaders.AutoLoader;
 
 public class ConfigCli {
   public static void main(String[] args) throws Exception {
@@ -22,7 +22,7 @@ public class ConfigCli {
 
     // Get the config.
     URI uri = new URI(options.valueOf("config-path").toString());
-    Config config = new AutoConfigLoader().getConfig(uri);
+    Config config = new AutoLoader().getConfig(uri);
 
     // Run main-class.
     String mainClass = config.get("main-class");

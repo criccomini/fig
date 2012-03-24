@@ -23,7 +23,7 @@ hello=world
 Now, in Java, you can get your properties.
 
 ```java
-Config config = new AutoConfigLoader().getConfig(new URI("file:///tmp/config.properties"));
+Config config = new AutoLoader().getConfig(new URI("file:///tmp/config.properties"));
 System.out.println("hello " + config.get("hello"));
 ```
 
@@ -72,10 +72,10 @@ Fig comes with a lot of FileSystems and ConfigDeserializers out of the box, but 
 -Dfig.deserializers=yaml:fig.serializers.YamlDeserializer
 ```
 
-Now, AutoConfigLoader will support URIs with an HTTP or HDFS scheme (http://.. or hdfs://..) and YAML config files (*.yaml). 
+Now, AutoLoader will support URIs with an HTTP or HDFS scheme (http://.. or hdfs://..) and YAML config files (*.yaml). 
 
 ```
-new AutoConfigLoader().getConfig(new URI("http://localhost/my-config.yaml"));
+new AutoLoader().getConfig(new URI("http://localhost/my-config.yaml"));
 ```
 
 How great is that?

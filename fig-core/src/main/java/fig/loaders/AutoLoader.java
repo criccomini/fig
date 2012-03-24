@@ -12,7 +12,7 @@ import fig.ConfigFileSystem;
 import fig.ConfigLoader;
 import fig.util.Utils;
 
-public class AutoConfigLoader implements ConfigLoader {
+public class AutoLoader implements ConfigLoader {
   public static final Map<String, String> DEFAULT_FS;
   public static final Map<String, String> DEFAULT_DESERIALIZERS;
 
@@ -58,11 +58,11 @@ public class AutoConfigLoader implements ConfigLoader {
   private final Map<String, String> fsClasses;
   private final Map<String, String> deserializerClasses;
 
-  public AutoConfigLoader() {
+  public AutoLoader() {
     this(DEFAULT_FS, DEFAULT_DESERIALIZERS);
   }
 
-  public AutoConfigLoader(Map<String, String> fsClasses, Map<String, String> deserializerClasses) {
+  public AutoLoader(Map<String, String> fsClasses, Map<String, String> deserializerClasses) {
     this.fsClasses = fsClasses;
     this.deserializerClasses = deserializerClasses;
   }
