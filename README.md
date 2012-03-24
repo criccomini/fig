@@ -85,5 +85,5 @@ How great is that?
 Since configuration is often a core and pervasive part of an API, Fig makes the following guarantees.
 
 1. Fig uses semantic versioning (http://semver.org/), and will never make backwards incompatible changes without bumping the major version (*.0.0).
-2. Fig's core library (fig-core) will have any dependencies.
+2. Fig's core library (fig-core) will never have any dependencies.
 
