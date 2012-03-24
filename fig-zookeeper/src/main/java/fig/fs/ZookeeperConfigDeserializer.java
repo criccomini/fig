@@ -1,4 +1,4 @@
-package fig.providers;
+package fig.fs;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -11,10 +11,10 @@ import org.I0Itec.zkclient.exception.ZkNoNodeException;
 import fig.ConfigDeserializer;
 import fig.ConfigException;
 
-public class ZooKeeperConfigDeserializer implements ZkSerializer {
+public class ZookeeperConfigDeserializer implements ZkSerializer {
   private final ConfigDeserializer deserializer;
 
-  public ZooKeeperConfigDeserializer(ConfigDeserializer deserializer) {
+  public ZookeeperConfigDeserializer(ConfigDeserializer deserializer) {
     this.deserializer = deserializer;
   }
 

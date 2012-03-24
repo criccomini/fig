@@ -53,7 +53,7 @@ Follow these instructions to try things out.
 ```
 git clone git://github.com/criccomini/fig.git
 cd fig
-mvn package
+mvn clean package
 cd fig-example/target
 unzip fig-example-bin.zip
 cd fig-example
