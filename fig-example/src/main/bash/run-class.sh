@@ -24,4 +24,4 @@ else
   JAVA="$JAVA_HOME/bin/java"
 fi
 
-$JAVA -cp $CLASSPATH $@
+$JAVA $FIG_OPTS -cp $CLASSPATH $@

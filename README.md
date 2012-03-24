@@ -22,7 +22,7 @@ hello=world
 Now, in Java, you can get your properties.
 
 ```java
-Map<String, String> config = new LocalFileSystem().getConfig(new URI("file:///tmp/config.properties"), new PropertiesDeserializer())
+Map<String, String> config = new AutoConfigLoader().getConfig(new URI("file:///tmp/config.properties"));
 System.out.println("hello " + config.get("hello"));
 ```
 
@@ -62,3 +62,19 @@ cd fig-example
 
 This will execute a little Java class that prints the configuration in example.properties.
 
+## Extensibility
+
+Fig comes with a lot of FileSystem and ConfigDeserializers out of the box, but you can always extend Fig to use your own config system by using the following Java properties.
+
+```
+-Dfig.fs=http:fig.fs.HttpFileSystem,hdfs:fig.fs.HadoopFileSystem
+-Dfig.deserializers=yaml:fig.serializers.YamlDeserializer
+```
+
+Now, AutoConfigLoader will support URIs with an HTTP or HDFS scheme (http://.. or hdfs://..) and YAML config files (*.yaml). 
+
+```
+new AutoConfigLoader().getConfig(new URI("http://localhost/my-config.yaml"));
+```
+
+How great is that?

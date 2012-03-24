@@ -67,7 +67,7 @@ public class AutoConfigLoader implements ConfigLoader {
   }
 
   @Override
-  public Map<String, String> load(URI uri) {
+  public Map<String, String> getConfig(URI uri) {
     // Get the file system based on scheme.
     String fsClass = fsClasses.get(uri.getScheme());
 

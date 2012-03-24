@@ -29,7 +29,7 @@ public class ConfigCli {
 
     // Get the config.
     URI uri = new URI(options.valueOf("config-path").toString());
-    Map<String, String> config = new AutoConfigLoader().load(uri);
+    Map<String, String> config = new AutoConfigLoader().getConfig(uri);
 
     // Run main-class.
     String mainClass = config.get("main-class");
