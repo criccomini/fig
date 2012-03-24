@@ -1,5 +1,7 @@
 package test.fig;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +17,7 @@ import fig.fs.LocalFileSystem;
 
 public class FigTest {
   @Test
-  public void testFig() {
+  public void testFig() throws ParseException {
     Map<String, String> map = new HashMap<String, String>();
     map.put("name", "fig");
     map.put("year", "2012");
@@ -23,6 +25,7 @@ public class FigTest {
     map.put("sub.k1", "newton");
     map.put("sub.k2", "1000");
     map.put("fs", "fig.fs.LocalFileSystem");
+    map.put("dt", "Tue Nov 04 21:53:43 EST 2003");
 
     Config conf = new MapConfig(map);
 
@@ -36,6 +39,9 @@ public class FigTest {
     // test class
     TestCase.assertEquals(LocalFileSystem.class, conf.getClass("fs"));
     TestCase.assertEquals(LocalFileSystem.class, conf.getNewInstance("fs").getClass());
+
+    // test dates
+    TestCase.assertEquals(new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy").parse("Tue Nov 04 21:53:43 EST 2003"), conf.getDate("dt", "EEE MMM dd HH:mm:ss zzz yyyy"));
 
     // test list
     List<String> list = conf.getList("list");

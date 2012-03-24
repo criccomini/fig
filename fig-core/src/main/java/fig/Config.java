@@ -1,6 +1,9 @@
 package fig;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -139,6 +142,44 @@ public abstract class Config implements Map<String, String> {
       return (T) getClass(k).newInstance();
     } catch (Exception e) {
       throw new ConfigException("Unable to instantiate class.", e);
+    }
+  }
+
+  public Date getDate(String k) {
+    return getDate(k, new SimpleDateFormat());
+  }
+
+  public Date getDate(String k, String format) {
+    return getDate(k, new SimpleDateFormat(format));
+  }
+
+  public Date getDate(String k, SimpleDateFormat format) {
+    if (!containsKey(k))
+      throw new ConfigException("Missing key " + k + ".");
+
+    try {
+      return format.parse(get(k));
+    } catch (ParseException e) {
+      throw new ConfigException("Date format excption.", e);
+    }
+  }
+
+  public Date getDate(String k, Date defaultValue) {
+    return getDate(k, new SimpleDateFormat(), defaultValue);
+  }
+
+  public Date getDate(String k, String format, Date defaultValue) {
+    return getDate(k, new SimpleDateFormat(format), defaultValue);
+  }
+
+  public Date getDate(String k, SimpleDateFormat format, Date defaultValue) {
+    if (!containsKey(k))
+      return defaultValue;
+
+    try {
+      return format.parse(get(k));
+    } catch (ParseException e) {
+      throw new ConfigException("Date format excption.", e);
     }
   }
 
