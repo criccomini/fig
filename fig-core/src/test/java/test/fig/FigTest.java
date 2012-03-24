@@ -9,8 +9,8 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import fig.Configuration;
-import fig.MapConfiguration;
+import fig.Config;
+import fig.MapConfig;
 public class FigTest {
 
   @Test
@@ -22,7 +22,7 @@ public class FigTest {
     map.put("sub.k1","newton");
     map.put("sub.k2","1000");
     
-    Configuration conf = new MapConfiguration(map);
+    Config conf = new MapConfig(map);
     
     TestCase.assertEquals("fig", conf.get("name"));
     TestCase.assertEquals("2012", conf.get("year"));
@@ -38,7 +38,7 @@ public class FigTest {
     TestCase.assertEquals("b", list.get(1));
     
     // test subset
-    Configuration subConf = conf.subset("sub.", true);
+    Config subConf = conf.subset("sub.", true);
     Set<String> subKeys = subConf.getKeys();
     
     TestCase.assertEquals(2, subKeys.size());

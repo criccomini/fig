@@ -7,10 +7,10 @@ import java.util.Set;
 
 import fig.util.Utils;
 
-public class MapConfiguration extends Configuration {
+public class MapConfig extends Config {
 
   private final Map<String,String> _map;
-  public MapConfiguration(Map<String,String> map){
+  public MapConfig(Map<String,String> map){
     _map = map;
   }
   
@@ -20,7 +20,7 @@ public class MapConfiguration extends Configuration {
   }
 
   @Override
-  public Configuration subset(String prefix,boolean stripPrefix) {
+  public Config subset(String prefix,boolean stripPrefix) {
     Utils.notNull(prefix);
 
     Map<String, String> out = new HashMap<String, String>();
@@ -38,7 +38,7 @@ public class MapConfiguration extends Configuration {
       }
     }
     
-    return new MapConfiguration(out);
+    return new MapConfig(out);
   }
 
   @Override

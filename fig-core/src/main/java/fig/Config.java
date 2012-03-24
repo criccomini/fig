@@ -7,13 +7,13 @@ import java.util.Set;
 
 import fig.util.Utils;
 
-public abstract class Configuration {
+public abstract class Config {
 
   public abstract String get(String s);
   
   public abstract Set<String> getKeys();
   
-  public abstract Configuration subset(String prefix,boolean stripPrefix);
+  public abstract Config subset(String prefix,boolean stripPrefix);
   
   public String get(String s,String defaultString){
     String val = get(s);
