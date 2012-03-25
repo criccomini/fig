@@ -9,6 +9,7 @@ Fig is a simple configuartion library for the JVM.
 *   No types
 *   Stupid simple
 *   Immutability
+*   Scala support
 
 ## Using Fig
 
@@ -27,11 +28,11 @@ Config config = new AutoLoader().getConfig(new URI("file:///tmp/config.propertie
 System.out.println("hello " + config.get("hello"));
 ```
 
-## Scala Implicit
+## Scala Implicits
 
 Fig also has an implicit to make life easier for Scala users.
 
-```java
+```scala
 import fig.scala.conversions.ConfigConversions._
 val config: Config = new URI("file:///tmp/config.properties")
 println("hello " + config.get("hello"));
