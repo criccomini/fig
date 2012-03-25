@@ -10,8 +10,7 @@ class Uri2ConfigTest {
   @Test
   def testUri2Config() {
     println(System.getProperties)
-    val projectRoot = System.getProperty("propertyName")
-    println(projectRoot)
+    val projectRoot = System.getProperty("projectRoot")
     val config: Config = new URI("file://" + projectRoot + "/fig-example/src/main/config/example.properties")
     assertEquals("bar", config.get("foo"))
   }
