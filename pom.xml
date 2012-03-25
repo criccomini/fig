@@ -17,6 +17,7 @@
     <module>fig-cli</module>
     <module>fig-example</module>
     <module>fig-json</module>
+    <module>fig-scala_2.9.1</module>
   </modules>
 
   <developers>
