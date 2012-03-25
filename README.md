@@ -27,6 +27,16 @@ Config config = new AutoLoader().getConfig(new URI("file:///tmp/config.propertie
 System.out.println("hello " + config.get("hello"));
 ```
 
+## Scala Implicit
+
+Fig also has an implicit to make life easier for Scala users.
+
+```java
+import fig.scala.conversions.ConfigConversions._
+val config: Config = new URI("file:///tmp/config.properties")
+println("hello " + config.get("hello"));
+```
+
 ## Command Line Execution
 
 Fig also provides an easy way to execute programs from the CLI using config (instead of CLI arguments).
