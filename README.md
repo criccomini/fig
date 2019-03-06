@@ -1,6 +1,6 @@
 # Fig
 
-Fig is a simple configuartion library for the JVM.
+Fig is a simple configuration library for the JVM.
 
 ## Why?
 
